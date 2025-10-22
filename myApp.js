@@ -11,6 +11,7 @@ app.use(helmet.hidePoweredBy()); //1. Desafío: Deshabilitar la cabecera X-Power
 app.use(helmet.frameguard({ action: "deny" })); //2. Desafío: Deshabilitar la cabecera X-Frame-Options
 app.use(helmet.xssFilter()); //3. Desafío: Deshabilitar la cabecera X-XSS-Protection
 app.use(helmet.noSniff()); //4. Desafío: Deshabilitar la cabecera X-Content-Type-Options
+app.use(helmet.ieNoOpen()); //5. Desafío: Deshabilitar la cabecera X-Download-Options
 // ------------------------------------------------------------------------------
 
 app.disable("strict-transport-security");
