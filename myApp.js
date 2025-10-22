@@ -15,6 +15,14 @@ app.use(helmet.ieNoOpen()); //5. Desafío: Deshabilitar la cabecera X-Download-O
 app.use(helmet.hsts({ maxAge: 7776000 })); //6. Desafío: Deshabilitar la cabecera Strict-Transport-Security
 app.use(helmet.dnsPrefetchControl()); //7. Desafío: Deshabilitar la cabecera X-DNS-Prefetch-Control
 app.use(helmet.noCache()); //8. Desafío: Deshabilitar la cabecera Cache-Control
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "trusted-cdn.com"],
+    },
+  }),
+); //9. Desafío: Deshabilitar la cabecera Content-Security-Policy
 // ------------------------------------------------------------------------------
 
 app.disable("strict-transport-security");
