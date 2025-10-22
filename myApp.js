@@ -2,10 +2,15 @@ const express = require("express");
 const app = express();
 const helmet = require("helmet");
 
-
 module.exports = app;
 const api = require("./server.js");
 app.use(express.static("public"));
+// ------------------------------------------------------------------------------
+//Comienzo de los desafíos de seguridad freecodecamp
+app.use(helmet.hidePoweredBy()); //1. Desafío: Deshabilitar la cabecera X-Powered-By
+
+// ------------------------------------------------------------------------------
+
 app.disable("strict-transport-security");
 app.use("/_api", api);
 app.get("/", function (request, response) {
